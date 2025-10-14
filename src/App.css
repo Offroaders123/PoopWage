@@ -13,10 +13,10 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-header {
+.Header {
   color: var(--theme);
 }
 
-main {
+.Main {
   grid-row: 2;
 }

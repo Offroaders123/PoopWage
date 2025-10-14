@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header>
+    <header class="Header">
       <h1>PoopWage</h1>
     </header>
   );
