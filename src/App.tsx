@@ -1,30 +1,50 @@
-import { For, type JSX } from "solid-js";
+import { createSignal, For, Match, Switch } from "solid-js";
 import "./App.css";
 
 export default function App() {
+  const [getTab, setTab] = createSignal<Tab>("Clock");
+
   return (
     <>
       <h1>PoopWage</h1>
-      <Tabbed>{[
-        ["Clock", <div>Clock interface</div>],
-        ["Log", <div>Log data</div>],
-      ]}</Tabbed>
+      <Tabs getTab={getTab} setTab={setTab} />
+      <main>
+        <Switch>
+          <Match when={getTab() === "Clock"}><Clock /></Match>
+          <Match when={getTab() === "Log"}><Log /></Match>
+        </Switch>
+      </main>
     </>
   );
 }
 
-function Tabbed(props: { children: [string, JSX.Element][]; }) {
+const tabs = ["Clock", "Log"] as const;
+type Tab = typeof tabs[number];
+
+function Tabs(props: { getTab: () => Tab, setTab: (tab: Tab) => void }) {
   return (
-    <>
-      <For each={props.children}>
-        {([name, content]) => (
-          <>
-            <div>
-              <button>{name}</button>
-            </div>
-          </>
+    <nav>
+      <For each={tabs}>
+        {tab => (
+          <button
+            onclick={() => props.setTab(tab)}
+            classList={{ active: props.getTab() === tab }}>
+            {tab}
+          </button>
         )}
       </For>
-    </>
+    </nav>
+  );
+}
+
+export function Clock() {
+  return (
+    <div>Clock interface</div>
+  );
+}
+
+export function Log() {
+  return (
+    <div>Log data</div>
   );
 }
