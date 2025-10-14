@@ -12,12 +12,12 @@ export interface TabsProps {
 
 export default function Tabs(props: TabsProps) {
   return (
-    <nav>
+    <nav class="Tabs">
       <For each={Object.values(Tab)}>
         {tab => (
           <button
             onclick={() => props.setTab(tab)}
-            classList={{ active: props.getTab() === tab }}>
+            classList={{ Tab: true, active: props.getTab() === tab }}>
             {tab}
           </button>
         )}
