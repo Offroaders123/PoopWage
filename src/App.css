@@ -1,0 +1,18 @@
+:root {
+  --theme: #ce6422;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  color: var(--theme);
+}
