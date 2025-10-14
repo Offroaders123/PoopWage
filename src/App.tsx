@@ -4,7 +4,7 @@ import Log from "./Log.tsx";
 import "./App.css";
 
 export default function App() {
-  const [getTab, setTab] = createSignal<Tab>("Clock");
+  const [getTab, setTab] = createSignal<Tab>(Tab.Clock);
 
   return (
     <>
@@ -12,21 +12,23 @@ export default function App() {
       <Tabs getTab={getTab} setTab={setTab} />
       <main>
         <Switch>
-          <Match when={getTab() === "Clock"}><Clock /></Match>
-          <Match when={getTab() === "Log"}><Log /></Match>
+          <Match when={getTab() === Tab.Clock}><Clock /></Match>
+          <Match when={getTab() === Tab.Log}><Log /></Match>
         </Switch>
       </main>
     </>
   );
 }
 
-const tabs = ["Clock", "Log"] as const;
-type Tab = typeof tabs[number];
+enum Tab {
+  Clock = "Clock",
+  Log = "Log",
+}
 
 function Tabs(props: { getTab: () => Tab, setTab: (tab: Tab) => void }) {
   return (
     <nav>
-      <For each={tabs}>
+      <For each={Object.values(Tab)}>
         {tab => (
           <button
             onclick={() => props.setTab(tab)}
