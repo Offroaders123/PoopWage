@@ -1,6 +1,6 @@
-import { createSignal, Match, type Signal, Switch } from "solid-js";
-import Clock from "./Clock.tsx";
-import Log from "./Log.tsx";
+import { createSignal, type Signal } from "solid-js";
+import Header from "./Header.tsx";
+import Main from "./Main.tsx";
 import Tabs, { Tab } from "./Tabs.tsx";
 import "./App.css";
 
@@ -9,16 +9,9 @@ export default function App() {
 
   return (
     <>
-      <header>
-        <h1>PoopWage</h1>
-      </header>
+      <Header />
       <Tabs getTab={getTab} setTab={setTab} />
-      <main>
-        <Switch>
-          <Match when={getTab() === Tab.Clock}><Clock /></Match>
-          <Match when={getTab() === Tab.Log}><Log /></Match>
-        </Switch>
-      </main>
+      <Main getTab={getTab} setTab={setTab} />
     </>
   );
 }
