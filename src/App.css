@@ -14,24 +14,24 @@ body {
 }
 
 .Header {
-  padding: 0 1em;
+  padding: 0 1rem;
   color: var(--theme);
 }
 
 .Tabs {
-  margin: 1em;
+  margin: 1rem;
   display: flex;
   background-color: #80808060;
   border: 0;
-  border-radius: 2em;
+  border-radius: 2rem;
 
   .Tab {
-    padding: 1em 0;
+    padding: 0.8rem 0;
     flex-grow: 1;
     color: unset;
     background-color: transparent;
     border: 0;
-    border-radius: 2em;
+    border-radius: 2rem;
 
     &:not(.active):hover {
       background-color: #80808080;
