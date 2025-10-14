@@ -1,6 +1,7 @@
-import { createSignal, For, Match, Switch } from "solid-js";
+import { createSignal, Match, Switch } from "solid-js";
 import Clock from "./Clock.tsx";
 import Log from "./Log.tsx";
+import Tabs, { Tab } from "./Tabs.tsx";
 import "./App.css";
 
 export default function App() {
@@ -17,26 +18,5 @@ export default function App() {
         </Switch>
       </main>
     </>
-  );
-}
-
-enum Tab {
-  Clock = "Clock",
-  Log = "Log",
-}
-
-function Tabs(props: { getTab: () => Tab, setTab: (tab: Tab) => void }) {
-  return (
-    <nav>
-      <For each={Object.values(Tab)}>
-        {tab => (
-          <button
-            onclick={() => props.setTab(tab)}
-            classList={{ active: props.getTab() === tab }}>
-            {tab}
-          </button>
-        )}
-      </For>
-    </nav>
   );
 }
