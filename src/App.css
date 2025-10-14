@@ -1,5 +1,5 @@
 :root {
-  --theme: #ce6422;
+  --theme: #df6f2a;
 }
 
 html {
@@ -28,6 +28,7 @@ body {
   .Tab {
     padding: 1em 0;
     flex-grow: 1;
+    color: unset;
     background-color: transparent;
     border: 0;
     border-radius: 2em;
@@ -38,6 +39,7 @@ body {
     }
 
     &.active {
+      color: #ffffff;
       background-color: var(--theme);
     }
   }
