@@ -1,11 +1,16 @@
-import { For } from "solid-js";
+import { type Accessor, For, type Setter } from "solid-js";
 
 export enum Tab {
   Clock = "Clock",
   Log = "Log",
 }
 
-export default function Tabs(props: { getTab: () => Tab, setTab: (tab: Tab) => void }) {
+export interface TabsProps {
+  getTab: Accessor<Tab>;
+  setTab: Setter<Tab>;
+}
+
+export default function Tabs(props: TabsProps) {
   return (
     <nav>
       <For each={Object.values(Tab)}>

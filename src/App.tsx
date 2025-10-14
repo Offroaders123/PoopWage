@@ -1,11 +1,11 @@
-import { createSignal, Match, Switch } from "solid-js";
+import { createSignal, Match, type Signal, Switch } from "solid-js";
 import Clock from "./Clock.tsx";
 import Log from "./Log.tsx";
 import Tabs, { Tab } from "./Tabs.tsx";
 import "./App.css";
 
 export default function App() {
-  const [getTab, setTab] = createSignal<Tab>(Tab.Clock);
+  const [getTab, setTab]: Signal<Tab> = createSignal<Tab>(Tab.Clock);
 
   return (
     <>
