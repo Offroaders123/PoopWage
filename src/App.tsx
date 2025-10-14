@@ -9,7 +9,9 @@ export default function App() {
 
   return (
     <>
-      <h1>PoopWage</h1>
+      <header>
+        <h1>PoopWage</h1>
+      </header>
       <Tabs getTab={getTab} setTab={setTab} />
       <main>
         <Switch>
