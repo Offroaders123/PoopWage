@@ -1,4 +1,6 @@
 import { createSignal, For, Match, Switch } from "solid-js";
+import Clock from "./Clock.tsx";
+import Log from "./Log.tsx";
 import "./App.css";
 
 export default function App() {
@@ -34,17 +36,5 @@ function Tabs(props: { getTab: () => Tab, setTab: (tab: Tab) => void }) {
         )}
       </For>
     </nav>
-  );
-}
-
-export function Clock() {
-  return (
-    <div>Clock interface</div>
-  );
-}
-
-export function Log() {
-  return (
-    <div>Log data</div>
   );
 }
