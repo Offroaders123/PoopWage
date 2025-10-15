@@ -22,7 +22,7 @@ body {
   margin: 1rem;
   position: relative;
   display: flex;
-  background-color: #90909060;
+  background-color: #80808040;
   border-radius: 3rem;
   isolation: isolate;
 
@@ -45,7 +45,7 @@ body {
     border-radius: 3rem;
 
     &:not(.active):hover {
-      background-color: #80808080;
+      background-color: #80808060;
       cursor: pointer;
     }
 
