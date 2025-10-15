@@ -103,4 +103,15 @@ body {
 .Log {
   display: grid;
   place-items: center;
+
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
 }
