@@ -57,10 +57,12 @@ body {
 }
 
 .Main {
+  min-height: 0;
   grid-row: 2;
 
   &>* {
     height: 100%;
+    overflow: auto;
   }
 }
 
