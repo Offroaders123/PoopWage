@@ -48,12 +48,12 @@ export function createTimeClock(): TimeClock {
     const current: TimeClockLog | null = getActiveLog();
 
     if (clockedIn && current === null) {
-    const now: number = Date.now();
-    setLogs([...logs, { start: now }]);
+      const now: number = Date.now();
+      setLogs([...logs, { start: now }]);
     } else if (!clockedIn && current !== null) {
-    const now: number = Date.now();
-    const index: number = logs.findIndex(log => log === current);
-    setLogs(index, "end", now);
+      const now: number = Date.now();
+      const index: number = logs.findIndex(log => log === current);
+      setLogs(index, "end", now);
     }
   });
 
