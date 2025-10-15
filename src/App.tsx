@@ -6,12 +6,13 @@ import "./App.css";
 
 export default function App() {
   const [getTab, setTab]: Signal<Tab> = createSignal<Tab>(Tab.Clock);
+  const [getTime, setTime]: Signal<number> = createSignal<number>(0);
 
   return (
     <>
       <Header />
       <Tabs getTab={getTab} setTab={setTab} />
-      <Main getTab={getTab} setTab={setTab} />
+      <Main getTab={getTab} setTab={setTab} getTime={getTime} />
     </>
   );
 }
