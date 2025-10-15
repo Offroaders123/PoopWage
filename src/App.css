@@ -95,6 +95,7 @@ body {
     }
 
     &.Stop {
+      color: #ffffff;
       background-color: #c4240f;
     }
   }
