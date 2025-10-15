@@ -11,7 +11,7 @@ export default function Clock(props: ClockProps) {
 
   return (
     <div class="Clock">
-      <div>
+      <div class="Display">
         <span>{getDisplay()}</span>
       </div>
       <button

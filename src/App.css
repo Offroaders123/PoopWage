@@ -68,6 +68,11 @@ body {
   display: grid;
   place-items: center;
 
+  .Display {
+    font-size: 3rem;
+    font-family: monospace;
+  }
+
   button {
     width: 4rem;
     aspect-ratio: 1/1;
