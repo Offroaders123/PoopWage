@@ -14,7 +14,15 @@ export default function Clock(props: ClockProps) {
     const hours: number = Math.floor(totalSeconds / 3600);
     const minutes: number = Math.floor((totalSeconds % 3600) / 60);
     const seconds: number = totalSeconds % 60;
-    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    return (
+      `${String(hours)
+        .padStart(2, "0")
+      }:${String(minutes)
+        .padStart(2, "0")
+      }:${String(seconds)
+        .padStart(2, "0")
+      }`
+    );
   }
 
   return (
