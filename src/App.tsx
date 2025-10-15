@@ -2,12 +2,12 @@ import { createSignal, type Signal } from "solid-js";
 import Header from "./Header.tsx";
 import Main from "./Main.tsx";
 import Tabs, { Tab } from "./Tabs.tsx";
+import { createTimeClock, type TimeClock } from "./time-clock.ts";
 import "./App.css";
 
 export default function App() {
   const [getTab, setTab]: Signal<Tab> = createSignal<Tab>(Tab.Clock);
-  const [getTime, setTime]: Signal<number> = createSignal<number>(0);
-  const [getClockedIn, setClockedIn]: Signal<boolean> = createSignal<boolean>(false);
+  const { logs, setLogs, getClockedIn, setClockedIn, getElapsed, getActiveLog }: TimeClock = createTimeClock();
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function App() {
       <Main
         getTab={getTab}
         setTab={setTab}
-        getTime={getTime}
+        getElapsed={getElapsed}
         getClockedIn={getClockedIn}
         setClockedIn={setClockedIn}
       />

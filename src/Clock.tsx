@@ -1,7 +1,7 @@
 import { type Accessor, type Setter } from "solid-js";
 
 export interface ClockProps {
-  getTime: Accessor<number>;
+  getElapsed: Accessor<number>;
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
 }
@@ -10,7 +10,7 @@ export default function Clock(props: ClockProps) {
   return (
     <div class="Clock">
       <div>
-        <span>{props.getTime()}</span>
+        <span>{props.getElapsed()}</span>
       </div>
       <button
         classList={{

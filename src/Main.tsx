@@ -6,7 +6,7 @@ import { Tab } from "./Tabs.tsx";
 export interface MainProps {
   getTab: Accessor<Tab>;
   setTab: Setter<Tab>;
-  getTime: Accessor<number>;
+  getElapsed: Accessor<number>;
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
 }
@@ -17,7 +17,7 @@ export default function Main(props: MainProps) {
       <Switch>
         <Match when={props.getTab() === Tab.Clock}>
           <Clock
-            getTime={props.getTime}
+            getElapsed={props.getElapsed}
             getClockedIn={props.getClockedIn}
             setClockedIn={props.setClockedIn}
           />
