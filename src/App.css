@@ -97,3 +97,8 @@ body {
     }
   }
 }
+
+.Log {
+  display: grid;
+  place-items: center;
+}

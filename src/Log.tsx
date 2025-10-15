@@ -1,5 +1,5 @@
 export default function Log() {
   return (
-    <div>Log data</div>
+    <div class="Log">Log data</div>
   );
 }
