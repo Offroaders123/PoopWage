@@ -12,8 +12,17 @@ export default function App() {
   return (
     <>
       <Header />
-      <Tabs getTab={getTab} setTab={setTab} />
-      <Main getTab={getTab} setTab={setTab} getTime={getTime} getClockedIn={getClockedIn} setClockedIn={setClockedIn} />
+      <Tabs
+        getTab={getTab}
+        setTab={setTab}
+      />
+      <Main
+        getTab={getTab}
+        setTab={setTab}
+        getTime={getTime}
+        getClockedIn={getClockedIn}
+        setClockedIn={setClockedIn}
+      />
     </>
   );
 }

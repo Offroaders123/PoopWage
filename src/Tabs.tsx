@@ -17,7 +17,10 @@ export default function Tabs(props: TabsProps) {
         {tab => (
           <button
             onclick={() => props.setTab(tab)}
-            classList={{ Tab: true, active: props.getTab() === tab }}>
+            classList={{
+              Tab: true,
+              active: props.getTab() === tab
+            }}>
             {tab}
           </button>
         )}

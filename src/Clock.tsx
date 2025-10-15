@@ -13,10 +13,18 @@ export default function Clock(props: ClockProps) {
         <span>{props.getTime()}</span>
       </div>
       <Show when={props.getClockedIn() !== true}>
-        <button class="Start" onclick={() => props.setClockedIn(true)}>Start</button>
+        <button
+          class="Start"
+          onclick={() => props.setClockedIn(true)}>
+          Start
+        </button>
       </Show>
       <Show when={props.getClockedIn() === true}>
-        <button class="Stop" onclick={() => props.setClockedIn(false)}>Stop</button>
+        <button
+          class="Stop"
+          onclick={() => props.setClockedIn(false)}>
+          Stop
+        </button>
       </Show>
     </div>
   );
