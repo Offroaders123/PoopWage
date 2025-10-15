@@ -1,4 +1,4 @@
-import { Show, type Accessor, type Setter } from "solid-js";
+import { type Accessor, type Setter } from "solid-js";
 
 export interface ClockProps {
   getTime: Accessor<number>;
@@ -12,20 +12,15 @@ export default function Clock(props: ClockProps) {
       <div>
         <span>{props.getTime()}</span>
       </div>
-      <Show when={props.getClockedIn() !== true}>
-        <button
-          class="Start"
-          onclick={() => props.setClockedIn(true)}>
-          Start
-        </button>
-      </Show>
-      <Show when={props.getClockedIn() === true}>
-        <button
-          class="Stop"
-          onclick={() => props.setClockedIn(false)}>
-          Stop
-        </button>
-      </Show>
+      <button
+        classList={{
+          Start: !props.getClockedIn(),
+          Stop: props.getClockedIn()
+        }}
+        onclick={() => props.setClockedIn(previous => !previous)}
+        aria-pressed={props.getClockedIn()}>
+        {props.getClockedIn() ? "Stop" : "Start"}
+      </button>
     </div>
   );
 }
