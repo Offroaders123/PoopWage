@@ -1,4 +1,4 @@
-import { type Accessor, type Setter } from "solid-js";
+import { createMemo, type Accessor, type Setter } from "solid-js";
 
 export interface ClockProps {
   getElapsed: Accessor<number>;
@@ -7,10 +7,12 @@ export interface ClockProps {
 }
 
 export default function Clock(props: ClockProps) {
+  const getSeconds: Accessor<number> = createMemo<number>(() => Math.floor(props.getElapsed() / 1000));
+
   return (
     <div class="Clock">
       <div>
-        <span>{props.getElapsed()}</span>
+        <span>{getSeconds()}</span>
       </div>
       <button
         classList={{
