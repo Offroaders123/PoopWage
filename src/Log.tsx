@@ -12,10 +12,8 @@ export default function Log(props: LogProps) {
       <table>
         <thead>
           <tr>
-            <th scope="col">Time In</th>
-            <th scope="col">Date In</th>
-            <th scope="col">Time Out</th>
-            <th scope="col">Date Out</th>
+            <th scope="col">Clock In</th>
+            <th scope="col">Clock Out</th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +22,8 @@ export default function Log(props: LogProps) {
               const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
               return (
                 <tr>
-                  <td>{startTime}</td>
-                  <td>{startDate}</td>
-                  <td>{endTime}</td>
-                  <td>{endDate}</td>
+                  <td>{startDate} {startTime}</td>
+                  <td>{endDate} {endTime}</td>
                 </tr>
               );
             }}
