@@ -9,11 +9,9 @@ export interface TimeClockLog {
 
 export interface TimeClock {
   logs: Store<TimeClockLog[]>;
-  setLogs: SetStoreFunction<TimeClockLog[]>;
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
   getElapsed: Accessor<number>;
-  getActiveLog: Accessor<TimeClockLog | null>;
 }
 
 export function createTimeClock(): TimeClock {
@@ -57,5 +55,5 @@ export function createTimeClock(): TimeClock {
     }
   });
 
-  return { logs, setLogs, getClockedIn, setClockedIn, getElapsed, getActiveLog };
+  return { logs, getClockedIn, setClockedIn, getElapsed };
 }
