@@ -9,14 +9,31 @@ export interface LogProps {
 export default function Log(props: LogProps) {
   return (
     <div class="Log">
-      <For each={props.logs}>
-        {log => {
-          const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
-          return (
-            <div>{startTime}, {startDate} | {endTime}, {endDate}</div>
-          );
-        }}
-      </For>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Time In</th>
+            <th scope="col">Date In</th>
+            <th scope="col">Time Out</th>
+            <th scope="col">Date Out</th>
+          </tr>
+        </thead>
+        <tbody>
+          <For each={props.logs}>
+            {log => {
+              const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
+              return (
+                <tr>
+                  <td>{startTime}</td>
+                  <td>{startDate}</td>
+                  <td>{endTime}</td>
+                  <td>{endDate}</td>
+                </tr>
+              );
+            }}
+          </For>
+        </tbody>
+      </table>
     </div>
   );
 }
