@@ -22,6 +22,7 @@ export default function App() {
         getElapsed={getElapsed}
         getClockedIn={getClockedIn}
         setClockedIn={setClockedIn}
+        logs={logs}
       />
     </>
   );
