@@ -21,9 +21,9 @@ body {
 .Tabs {
   margin: 1rem;
   display: flex;
-  background-color: #80808060;
-  border: 0;
-  border-radius: 2rem;
+  background-color: #90909060;
+  border: 0.15rem solid #a0a0a060;
+  border-radius: 3rem;
 
   .Tab {
     padding: 0.8rem 0;
@@ -31,7 +31,7 @@ body {
     color: unset;
     background-color: transparent;
     border: 0;
-    border-radius: 2rem;
+    border-radius: 3rem;
 
     &:not(.active):hover {
       background-color: #80808080;
