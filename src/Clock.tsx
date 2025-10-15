@@ -10,8 +10,8 @@ export default function Clock(props: ClockProps) {
       <div>
         <output>{props.getTime()}</output>
       </div>
-      <button>Start</button>
-      <button>Stop</button>
+      <button class="Start">Start</button>
+      <button class="Stop">Stop</button>
     </div>
   );
 }

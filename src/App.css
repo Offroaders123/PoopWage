@@ -77,5 +77,18 @@ body {
     text-transform: uppercase;
     border: 0;
     border-radius: 2em;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.Start {
+      color: #000000;
+      background-color: #00de3f;
+    }
+
+    &.Stop {
+      background-color: #c4240f;
+    }
   }
 }
