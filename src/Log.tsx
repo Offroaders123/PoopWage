@@ -4,11 +4,13 @@ import { type TimeClockLog } from "./time-clock.ts";
 
 export interface LogProps {
   logs: Store<TimeClockLog[]>;
+  clearLogs: () => void;
 }
 
 export default function Log(props: LogProps) {
   return (
     <div class="Log">
+      <button onclick={() => props.clearLogs()}>Reset Log</button>
       <table>
         <thead>
           <tr>

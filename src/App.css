@@ -103,7 +103,9 @@ body {
 
 .Log {
   display: grid;
-  place-items: center;
+  gap: 1rem;
+  justify-content: center;
+  align-content: start;
 
   table,
   th,

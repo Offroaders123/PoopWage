@@ -7,7 +7,7 @@ import "./App.css";
 
 export default function App() {
   const [getTab, setTab]: Signal<Tab> = createSignal<Tab>(Tab.Clock);
-  const { logs, getClockedIn, setClockedIn, getElapsed }: TimeClock = createTimeClock();
+  const { logs, getClockedIn, setClockedIn, getElapsed, clearLogs }: TimeClock = createTimeClock();
 
   return (
     <>
@@ -23,6 +23,7 @@ export default function App() {
         getClockedIn={getClockedIn}
         setClockedIn={setClockedIn}
         logs={logs}
+        clearLogs={clearLogs}
       />
     </>
   );

@@ -12,6 +12,7 @@ export interface MainProps {
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
   logs: Store<TimeClockLog[]>;
+  clearLogs: () => void;
 }
 
 export default function Main(props: MainProps) {
@@ -26,7 +27,7 @@ export default function Main(props: MainProps) {
           />
         </Match>
         <Match when={props.getTab() === Tab.Log}>
-          <Log logs={props.logs} />
+          <Log logs={props.logs} clearLogs={props.clearLogs}/>
         </Match>
       </Switch>
     </main>

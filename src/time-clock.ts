@@ -12,6 +12,7 @@ export interface TimeClock {
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
   getElapsed: Accessor<number>;
+  clearLogs: () => void;
 }
 
 export function createTimeClock(): TimeClock {
@@ -22,6 +23,15 @@ export function createTimeClock(): TimeClock {
   const [getElapsed, setElapsed]: Signal<number> = createSignal<number>(0);
 
   const getActiveLog: Accessor<TimeClockLog | null> = () => logs.find(log => typeof log.end !== "number") ?? null;
+
+  function clearLogs(): void {
+    const current: TimeClockLog | null = getActiveLog();
+    if (current === null) {
+      setLogs([]);
+    } else {
+      setLogs([current]);
+    }
+  }
 
   createEffect(() => {
     if (!getClockedIn()) {
@@ -55,5 +65,5 @@ export function createTimeClock(): TimeClock {
     }
   });
 
-  return { logs, getClockedIn, setClockedIn, getElapsed };
+  return { logs, getClockedIn, setClockedIn, getElapsed, clearLogs };
 }
