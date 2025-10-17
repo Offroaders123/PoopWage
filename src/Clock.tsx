@@ -17,8 +17,11 @@ export default function Clock(props: ClockProps) {
     <div class="Clock">
       <form
         onsubmit={event => {
-          event.currentTarget.reportValidity();
+          const valid: boolean = event.currentTarget.reportValidity();
           event.preventDefault();
+          if (valid) {
+            props.setClockedIn(previous => !previous);
+          }
         }}>
         <div class="Display">
           <span>{getDisplay()}</span>
@@ -34,6 +37,7 @@ export default function Clock(props: ClockProps) {
             aria-label="Wage in dollars"
             value={props.getWage()}
             oninput={event => props.setWage(event.currentTarget.valueAsNumber)}
+            required
           />
         </label>
         <button
@@ -42,7 +46,6 @@ export default function Clock(props: ClockProps) {
             Start: !props.getClockedIn(),
             Stop: props.getClockedIn()
           }}
-          onclick={() => props.setClockedIn(previous => !previous)}
           aria-pressed={props.getClockedIn()}>
           {props.getClockedIn() ? "Stop" : "Start"}
         </button>
