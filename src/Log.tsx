@@ -21,10 +21,11 @@ export default function Log(props: LogProps) {
           <For each={props.logs}>
             {log => {
               const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
+              const partial: boolean = typeof endDate !== "string" && typeof endTime !== "string";
               return (
-                <tr>
+                <tr classList={{ Partial: partial }}>
                   <td>{startDate} {startTime}</td>
-                  <td>{endDate} {endTime}</td>
+                  <td>{partial ? "-" : `${endDate} ${endTime}`}</td>
                 </tr>
               );
             }}
