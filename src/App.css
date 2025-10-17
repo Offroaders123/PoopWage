@@ -102,6 +102,7 @@ body {
 }
 
 .Log {
+  padding: 0.5rem 1rem;
   display: grid;
   gap: 1rem;
   justify-content: center;
