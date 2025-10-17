@@ -13,6 +13,8 @@ export interface MainProps {
   setClockedIn: Setter<boolean>;
   logs: Store<TimeClockLog[]>;
   clearLogs: () => void;
+  getWage: Accessor<number>;
+  setWage: Setter<number>;
 }
 
 export default function Main(props: MainProps) {
@@ -24,6 +26,8 @@ export default function Main(props: MainProps) {
             getElapsed={props.getElapsed}
             getClockedIn={props.getClockedIn}
             setClockedIn={props.setClockedIn}
+            getWage={props.getWage}
+            setWage={props.setWage}
           />
         </Match>
         <Match when={props.getTab() === Tab.Log}>

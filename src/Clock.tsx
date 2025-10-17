@@ -4,6 +4,8 @@ export interface ClockProps {
   getElapsed: Accessor<number>;
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
+  getWage: Accessor<number>;
+  setWage: Setter<number>;
 }
 
 export default function Clock(props: ClockProps) {
@@ -14,6 +16,18 @@ export default function Clock(props: ClockProps) {
       <div class="Display">
         <span>{getDisplay()}</span>
       </div>
+      <label class="Wage">
+        <span aria-hidden>$ </span>
+        <input
+          type="number"
+          inputmode="decimal"
+          step={0.01}
+          min={0}
+          aria-label="Wage in dollars"
+          value={props.getWage()}
+          oninput={event => props.setWage(event.currentTarget.valueAsNumber)}
+        />
+      </label>
       <button
         classList={{
           Start: !props.getClockedIn(),
