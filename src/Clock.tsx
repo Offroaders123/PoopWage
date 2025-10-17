@@ -1,11 +1,13 @@
 import { createMemo, type Accessor, type Setter } from "solid-js";
 
+const FEDERAL_MINIMUM_WAGE: string = "7.25";
+
 export interface ClockProps {
   getElapsed: Accessor<number>;
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
-  getWage: Accessor<number>;
-  setWage: Setter<number>;
+  getWage: Accessor<number | undefined>;
+  setWage: Setter<number | undefined>;
 }
 
 export default function Clock(props: ClockProps) {
@@ -23,6 +25,7 @@ export default function Clock(props: ClockProps) {
           inputmode="decimal"
           step={0.01}
           min={0}
+          placeholder={FEDERAL_MINIMUM_WAGE}
           aria-label="Wage in dollars"
           value={props.getWage()}
           oninput={event => props.setWage(event.currentTarget.valueAsNumber)}

@@ -13,8 +13,8 @@ export interface MainProps {
   setClockedIn: Setter<boolean>;
   logs: Store<TimeClockLog[]>;
   clearLogs: () => void;
-  getWage: Accessor<number>;
-  setWage: Setter<number>;
+  getWage: Accessor<number | undefined>;
+  setWage: Setter<number | undefined>;
 }
 
 export default function Main(props: MainProps) {
