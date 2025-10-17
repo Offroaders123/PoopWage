@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { type Accessor, createMemo, For, Match, Switch } from "solid-js";
 import { type Store } from "solid-js/store";
 import { type TimeClockLog } from "./time-clock.ts";
 
@@ -8,8 +8,12 @@ export interface LogProps {
 }
 
 export default function Log(props: LogProps) {
+  const logsPresent: Accessor<boolean> = createMemo<boolean>(() => props.logs.length > 0);
+
   return (
     <div class="Log">
+      <Switch>
+        <Match when={logsPresent()}>
       <table>
         <thead>
           <tr>
@@ -37,6 +41,11 @@ export default function Log(props: LogProps) {
         onclick={() => props.clearLogs()}>
         Reset Log
       </button>
+        </Match>
+        <Match when={logsPresent() === false}>
+          <p>No logs made yet!</p>
+        </Match>
+      </Switch>
     </div>
   );
 }
