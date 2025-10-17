@@ -31,7 +31,10 @@ export default function Main(props: MainProps) {
           />
         </Match>
         <Match when={props.getTab() === Tab.Log}>
-          <Log logs={props.logs} clearLogs={props.clearLogs}/>
+          <Log
+            logs={props.logs}
+            clearLogs={props.clearLogs}
+          />
         </Match>
       </Switch>
     </main>
