@@ -10,7 +10,11 @@ export interface LogProps {
 export default function Log(props: LogProps) {
   return (
     <div class="Log">
-      <button onclick={() => props.clearLogs()}>Reset Log</button>
+      <button
+        class="ClearLogs"
+        onclick={() => props.clearLogs()}>
+        Reset Log
+      </button>
       <table>
         <thead>
           <tr>
