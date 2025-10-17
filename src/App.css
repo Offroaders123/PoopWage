@@ -75,6 +75,10 @@ body {
     font-family: monospace;
   }
 
+  form {
+    display: contents;
+  }
+
   button {
     width: 5rem;
     aspect-ratio: 1/1;

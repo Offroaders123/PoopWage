@@ -15,6 +15,11 @@ export default function Clock(props: ClockProps) {
 
   return (
     <div class="Clock">
+      <form
+        onsubmit={event => {
+          event.currentTarget.reportValidity();
+          event.preventDefault();
+        }}>
       <div class="Display">
         <span>{getDisplay()}</span>
       </div>
@@ -32,6 +37,7 @@ export default function Clock(props: ClockProps) {
         />
       </label>
       <button
+        type="submit"
         classList={{
           Start: !props.getClockedIn(),
           Stop: props.getClockedIn()
@@ -40,6 +46,7 @@ export default function Clock(props: ClockProps) {
         aria-pressed={props.getClockedIn()}>
         {props.getClockedIn() ? "Stop" : "Start"}
       </button>
+      </form>
     </div>
   );
 }
