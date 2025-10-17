@@ -14,33 +14,33 @@ export default function Log(props: LogProps) {
     <div class="Log">
       <Switch>
         <Match when={logsPresent()}>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Clock In</th>
-            <th scope="col">Clock Out</th>
-          </tr>
-        </thead>
-        <tbody>
-          <For each={props.logs}>
-            {log => {
-              const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
-              const partial: boolean = typeof endDate !== "string" && typeof endTime !== "string";
-              return (
-                <tr classList={{ Partial: partial }}>
-                  <td>{startDate} {startTime}</td>
-                  <td>{partial ? "-" : `${endDate} ${endTime}`}</td>
-                </tr>
-              );
-            }}
-          </For>
-        </tbody>
-      </table>
-      <button
-        class="ClearLogs"
-        onclick={() => props.clearLogs()}>
-        Reset Log
-      </button>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Clock In</th>
+                <th scope="col">Clock Out</th>
+              </tr>
+            </thead>
+            <tbody>
+              <For each={props.logs}>
+                {log => {
+                  const { startTime, startDate, endTime, endDate }: LogDates = parseLogDates(log);
+                  const partial: boolean = typeof endDate !== "string" && typeof endTime !== "string";
+                  return (
+                    <tr classList={{ Partial: partial }}>
+                      <td>{startDate} {startTime}</td>
+                      <td>{partial ? "-" : `${endDate} ${endTime}`}</td>
+                    </tr>
+                  );
+                }}
+              </For>
+            </tbody>
+          </table>
+          <button
+            class="ClearLogs"
+            onclick={() => props.clearLogs()}>
+            Reset Log
+          </button>
         </Match>
         <Match when={logsPresent() === false}>
           <p>No logs made yet!</p>
