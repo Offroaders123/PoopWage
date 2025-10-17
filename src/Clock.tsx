@@ -20,32 +20,32 @@ export default function Clock(props: ClockProps) {
           event.currentTarget.reportValidity();
           event.preventDefault();
         }}>
-      <div class="Display">
-        <span>{getDisplay()}</span>
-      </div>
-      <label class="Wage">
-        <span aria-hidden>$ </span>
-        <input
-          type="number"
-          inputmode="decimal"
-          step={0.01}
-          min={0}
-          placeholder={FEDERAL_MINIMUM_WAGE}
-          aria-label="Wage in dollars"
-          value={props.getWage()}
-          oninput={event => props.setWage(event.currentTarget.valueAsNumber)}
-        />
-      </label>
-      <button
-        type="submit"
-        classList={{
-          Start: !props.getClockedIn(),
-          Stop: props.getClockedIn()
-        }}
-        onclick={() => props.setClockedIn(previous => !previous)}
-        aria-pressed={props.getClockedIn()}>
-        {props.getClockedIn() ? "Stop" : "Start"}
-      </button>
+        <div class="Display">
+          <span>{getDisplay()}</span>
+        </div>
+        <label class="Wage">
+          <span aria-hidden>$ </span>
+          <input
+            type="number"
+            inputmode="decimal"
+            step={0.01}
+            min={0}
+            placeholder={FEDERAL_MINIMUM_WAGE}
+            aria-label="Wage in dollars"
+            value={props.getWage()}
+            oninput={event => props.setWage(event.currentTarget.valueAsNumber)}
+          />
+        </label>
+        <button
+          type="submit"
+          classList={{
+            Start: !props.getClockedIn(),
+            Stop: props.getClockedIn()
+          }}
+          onclick={() => props.setClockedIn(previous => !previous)}
+          aria-pressed={props.getClockedIn()}>
+          {props.getClockedIn() ? "Stop" : "Start"}
+        </button>
       </form>
     </div>
   );
