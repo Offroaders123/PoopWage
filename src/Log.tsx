@@ -10,11 +10,6 @@ export interface LogProps {
 export default function Log(props: LogProps) {
   return (
     <div class="Log">
-      <button
-        class="ClearLogs"
-        onclick={() => props.clearLogs()}>
-        Reset Log
-      </button>
       <table>
         <thead>
           <tr>
@@ -36,6 +31,11 @@ export default function Log(props: LogProps) {
           </For>
         </tbody>
       </table>
+      <button
+        class="ClearLogs"
+        onclick={() => props.clearLogs()}>
+        Reset Log
+      </button>
     </div>
   );
 }

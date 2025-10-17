@@ -107,6 +107,17 @@ body {
   justify-content: center;
   align-content: start;
 
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
   .ClearLogs {
     padding: 0.5rem 1rem;
     justify-self: center;
@@ -118,16 +129,5 @@ body {
     &:hover {
       cursor: pointer;
     }
-  }
-
-  table,
-  th,
-  td {
-    border: 1px solid;
-  }
-
-  th,
-  td {
-    padding: 0.5rem;
   }
 }
