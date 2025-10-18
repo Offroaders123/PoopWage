@@ -30,6 +30,7 @@ export default function Clock(props: ClockProps) {
         <label class="Wage">
           <span aria-hidden>$ </span>
           <input
+            name="WageInput"
             type="number"
             inputmode="decimal"
             step={0.01}

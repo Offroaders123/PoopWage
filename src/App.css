@@ -79,6 +79,13 @@ body {
     display: contents;
   }
 
+  input[type="number"] {
+    padding: 0.5rem 0.75rem;
+    background-color: #80808060;
+    border: 0.1rem solid #a0a0a060;
+    border-radius: 3rem;
+  }
+
   button {
     width: 5rem;
     aspect-ratio: 1/1;
