@@ -5,6 +5,7 @@ import { createLocalStore } from "./storage.ts";
 export interface TimeClockLog {
   start: number;
   end?: number;
+  wage: number;
 }
 
 export interface TimeClock {
@@ -12,6 +13,8 @@ export interface TimeClock {
   getClockedIn: Accessor<boolean>;
   setClockedIn: Setter<boolean>;
   getElapsed: Accessor<number>;
+  getWage: Accessor<number | undefined>;
+  setWage: Setter<number | undefined>;
   clearLogs: () => void;
 }
 
@@ -23,6 +26,8 @@ export function createTimeClock(): TimeClock {
   const [getElapsed, setElapsed]: Signal<number> = createSignal<number>(0);
 
   const getActiveLog: Accessor<TimeClockLog | null> = () => logs.find(log => typeof log.end !== "number") ?? null;
+
+  const [getWage, setWage]: Signal<number | undefined> = createSignal<number | undefined>(undefined);
 
   function clearLogs(): void {
     const current: TimeClockLog | null = getActiveLog();
@@ -54,10 +59,11 @@ export function createTimeClock(): TimeClock {
   createEffect(() => {
     const clockedIn: boolean = getClockedIn();
     const current: TimeClockLog | null = getActiveLog();
+    const wage: number | undefined = getWage();
 
-    if (clockedIn && current === null) {
+    if (clockedIn && current === null && wage !== undefined) {
       const now: number = Date.now();
-      setLogs([...logs, { start: now }]);
+      setLogs([...logs, { start: now, wage }]);
     } else if (!clockedIn && current !== null) {
       const now: number = Date.now();
       const index: number = logs.findIndex(log => log === current);
@@ -65,5 +71,5 @@ export function createTimeClock(): TimeClock {
     }
   });
 
-  return { logs, getClockedIn, setClockedIn, getElapsed, clearLogs };
+  return { logs, getClockedIn, setClockedIn, getElapsed, getWage, setWage, clearLogs };
 }
