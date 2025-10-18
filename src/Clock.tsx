@@ -11,6 +11,7 @@ export interface ClockProps {
 }
 
 export default function Clock(props: ClockProps) {
+  const getWage: Accessor<number | ""> = createMemo<number | "">(() => props.getWage() ?? "");
   const getDisplay: Accessor<string> = createMemo<string>(() => formatTime(props.getElapsed()));
 
   return (
@@ -35,8 +36,8 @@ export default function Clock(props: ClockProps) {
             min={0}
             placeholder={FEDERAL_MINIMUM_WAGE}
             aria-label="Wage in dollars"
-            value={props.getWage()}
-            oninput={event => props.setWage(event.currentTarget.valueAsNumber)}
+            value={getWage()}
+            oninput={event => props.setWage(event.currentTarget.valueAsNumber || undefined)}
             required
           />
         </label>
