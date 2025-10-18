@@ -38,6 +38,7 @@ export default function Clock(props: ClockProps) {
             aria-label="Wage in dollars"
             value={getWage()}
             oninput={event => props.setWage(event.currentTarget.valueAsNumber || undefined)}
+            disabled={props.getClockedIn()}
             required
           />
         </label>
