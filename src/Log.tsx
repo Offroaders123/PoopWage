@@ -17,6 +17,7 @@ export default function Log(props: LogProps) {
           <table>
             <thead>
               <tr>
+                <th scope="col">Wage</th>
                 <th scope="col">Clock In</th>
                 <th scope="col">Clock Out</th>
               </tr>
@@ -28,6 +29,7 @@ export default function Log(props: LogProps) {
                   const partial: boolean = typeof endDate !== "string" && typeof endTime !== "string";
                   return (
                     <tr classList={{ Partial: partial }}>
+                      <td>${log.wage}</td>
                       <td>{startDate} {startTime}</td>
                       <td>{partial ? "-" : `${endDate} ${endTime}`}</td>
                     </tr>
